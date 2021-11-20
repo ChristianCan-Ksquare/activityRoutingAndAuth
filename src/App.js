@@ -11,7 +11,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 export const ThemeContext = createContext();
 
 export default function App() {
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = useState(
+    localStorage.getItem("authorized") == 1 ? true : false
+  );
 
   const handleLogIn = useCallback(() => {
     localStorage.setItem("authorized", "1");
